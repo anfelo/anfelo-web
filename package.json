@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "anfelo-web",
+  "description": "Hi, Im Andres Osorio and this is my web portfolio. You'll find here information about myself, my career and my projects",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
