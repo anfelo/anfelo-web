@@ -15,14 +15,14 @@ jobs:
   test_pull_request:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: cypress-io/github-action@v1
-      with:
-        browser: chrome
-        headless: true
-      run: npm ci
-      run: npm test
-      run: npm run build
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v1
+        with:
+          browser: chrome
+          headless: true
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
