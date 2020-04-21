@@ -1,10 +1,11 @@
 <script>
-  import Nav from "../components/Nav.svelte";
+  import Nav from "../components/navbar/Nav.svelte";
 
   export let segment;
 </script>
 
-<style>
+<style lang="scss" global>
+  @import "./style/global.scss";
   main {
     position: relative;
     max-width: 56em;
