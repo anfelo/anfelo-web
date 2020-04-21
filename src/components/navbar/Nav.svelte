@@ -1,5 +1,12 @@
 <script>
   export let segment;
+
+  let isNavbarOpen = false;
+
+  function handleBurgerClick(e) {
+    e.preventDefault();
+    isNavbarOpen = !isNavbarOpen;
+  }
 </script>
 
 <style>
@@ -34,6 +41,16 @@
     font-family: menlo, inconsolata, monospace;
     font-weight: bold;
   }
+
+  @media (max-width: 768px) {
+    .navbar-item {
+      text-align: center;
+    }
+
+    [aria-current]::after {
+      display: none;
+    }
+  }
 </style>
 
 <div class="container">
@@ -47,17 +64,20 @@
       <a
         href="."
         role="button"
-        class="navbar-burger burger"
+        class={`navbar-burger burger ${isNavbarOpen ? 'is-active' : ''}`}
         aria-label="menu"
         aria-expanded="false"
-        data-target="mainNavbar">
+        data-target="mainNavbar"
+        on:click={handleBurgerClick}>
         <span aria-hidden="true" />
         <span aria-hidden="true" />
         <span aria-hidden="true" />
       </a>
     </div>
 
-    <div id="mainNavbar" class="navbar-menu">
+    <div
+      id="mainNavbar"
+      class={`navbar-menu ${isNavbarOpen ? 'is-active' : ''}`}>
       <div class="navbar-end">
         <a
           class="navbar-item"
