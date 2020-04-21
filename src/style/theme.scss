@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+$light-blue: #41c8f1;
+$pale-yellow: #f1c241;
+$pink: #e17cdf;
+$light-pink: #f0c6f1;
+$dark-pink: #db1d59;
+$light-green: #94fbb4;
+$pale-green: #79cd98;
+$purple: #5f3ff5;
+$dark-purple: #3d268e;
+$deep-dark-purple: #1c234b;
+$grey: #c6ceca;
+
+// Update Bulma's global variables
+$family-sans-serif: 'Montserrat', sans-serif;
+$primary: $purple;
+$info: $light-blue;
+$warning: $pale-yellow;
+$danger: $dark-pink;
+$success: $light-green;
+$link: $pink;
+$dark: $deep-dark-purple;
