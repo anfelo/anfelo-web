@@ -1,2 +1,102 @@
 @import './theme.scss';
 @import '../../node_modules/bulma/bulma.sass';
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  font-size: 1em;
+}
+
+body.dark-theme {
+  --bg-color: #222;
+  --text-color: #ccc;
+  --text-hover-color: #ddd;
+  --h-color: white;
+  --btn-color: white;
+  --btn-border: white;
+  --btn-shadow: white;
+  --code-bg: #444;
+}
+
+body.light-theme {
+  --bg-color: white;
+  --text-color: #222;
+  --text-hover-color: #444;
+  --h-color: black;
+  --btn-color: black;
+  --btn-border: black;
+  --btn-shadow: black;
+  --code-bg: #222;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $family-secondary;
+  color: var(--h-color);
+}
+
+code,
+pre {
+  background-color: var(--code-bg) !important;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+.card-body p {
+  color: var(--h-color) !important;
+}
+
+.blue-html {
+  background: #39add1;
+}
+
+.blue-css {
+  background: #3079ab;
+}
+
+.pink-js {
+  background: #c25975;
+}
+
+.red-ruby {
+  background: #e15258;
+}
+
+.orange {
+  background-color: #f9845b;
+}
+
+.purple-wp {
+  background-color: #838cc7;
+}
+
+.purple-php {
+  background-color: #7d669e;
+}
+
+.green-ios {
+  background-color: #53bbb4;
+}
+
+.green-android {
+  background-color: #51b46d;
+}
+
+.green-node {
+  background-color: #43853d;
+}
+
+.yellow-sun {
+  background-color: #e0ab18;
+}
+
+.pink-python {
+  background-color: #f092b0;
+}

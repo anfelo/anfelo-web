@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@font-face {
+  font-family: Montserrat;
+  src: url(/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Bree Serif';
+  src: url(/fonts/Bree_Serif/BreeSerif-Regular.ttf);
+}
 
 $light-blue: #41c8f1;
 $pale-yellow: #f1c241;
@@ -9,11 +17,13 @@ $light-green: #94fbb4;
 $pale-green: #79cd98;
 $purple: #5f3ff5;
 $dark-purple: #3d268e;
-$deep-dark-purple: #1c234b;
+$deep-dark-purple: #363636;
 $grey: #c6ceca;
 
 // Update Bulma's global variables
 $family-sans-serif: 'Montserrat', sans-serif;
+$family-sans-serif-title: 'Bree Serif', sans-serif;
+$family-secondary: $family-sans-serif-title;
 $primary: $purple;
 $info: $light-blue;
 $warning: $pale-yellow;
