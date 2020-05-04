@@ -1,36 +1,15 @@
+<script>
+  import Orbits from "../components/orbits/Orbits.svelte";
+</script>
+
 <style>
-  h1,
-  figure,
-  p {
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  h1 {
-    font-size: 2.8em;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: 0 0 0.5em 0;
-  }
-
-  figure {
-    margin: 0 0 1em 0;
-  }
-
-  img {
+  .hero {
+    position: absolute;
+    left: 50%;
+    top: 50%;
     width: 100%;
-    max-width: 400px;
-    margin: 0 0 1em 0;
-  }
-
-  p {
-    margin: 1em auto;
-  }
-
-  @media (min-width: 480px) {
-    h1 {
-      font-size: 4em;
-    }
+    transform: translate(-50%, -50%);
+    z-index: 1;
   }
 </style>
 
@@ -38,15 +17,17 @@
   <title>anfelo - home</title>
 </svelte:head>
 
-<h1>Great success!</h1>
-
-<figure>
-  <img alt="Borat" src="great-success.png" />
-  <figcaption>HIGH FIVE!</figcaption>
-</figure>
-
-<p>
-  <strong>
-    Try editing this file (src/routes/index.svelte) to test live reloading.
-  </strong>
-</p>
+<div class="container">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">Andres Osorio</h1>
+        <p class="subtitle">Entrepreneur ● Software Engineer ● Home Barista</p>
+        <a href="/about" class="button button-callout is-dark">
+          lets have a coffee
+        </a>
+      </div>
+    </div>
+  </section>
+  <Orbits />
+</div>
