@@ -1,4 +1,4 @@
-export function parseDate(stringDate: string) {
+export function parseDate(stringDate) {
   const options = {
     year: 'numeric',
     month: 'long',

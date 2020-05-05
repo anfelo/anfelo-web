@@ -1,11 +1,18 @@
 <script>
+  import { theme } from "../../store/stores.js";
   export let segment;
+  export let isDark;
 
   let isNavbarOpen = false;
 
   function handleBurgerClick(e) {
     e.preventDefault();
     isNavbarOpen = !isNavbarOpen;
+  }
+
+  function handleThemeChange(e, value) {
+    e.preventDefault();
+    theme.update(v => value);
   }
 </script>
 
@@ -42,6 +49,12 @@
     font-weight: bold;
   }
 
+  .navbar-icon {
+    width: 25px;
+    margin: auto;
+    cursor: pointer;
+  }
+
   @media (max-width: 768px) {
     .navbar-item {
       text-align: center;
@@ -54,7 +67,10 @@
 </style>
 
 <div class="container">
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav
+    class={`navbar ${isDark ? 'is-dark' : ''}`}
+    role="navigation"
+    aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
         <img src="/img/logo-orange.svg" height="28" alt="Anfelo Logo" />
@@ -98,6 +114,27 @@
           href="blog">
           blog
         </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-icon">
+            <img
+              src={`/img/${isDark ? 'switches-dark.png' : 'switches-light.png'}`}
+              alt="" />
+          </div>
+          <div class="navbar-dropdown">
+            <a
+              href="."
+              on:click={e => handleThemeChange(e, 'dark-theme')}
+              class="navbar-item">
+              dark
+            </a>
+            <a
+              href="."
+              on:click={e => handleThemeChange(e, 'light-theme')}
+              class="navbar-item">
+              light
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </nav>

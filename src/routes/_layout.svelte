@@ -1,8 +1,22 @@
 <script>
+  import { onMount } from "svelte";
+  import { theme } from "../store/stores.js";
   import Nav from "../components/navbar/Nav.svelte";
   import Footer from "../components/footer/Footer.svelte";
+  import * as fromLocalStorage from "../services/localStorage";
 
   export let segment;
+
+  let themeValue;
+
+  onMount(async () => {
+    const unsubscribe = theme.subscribe(value => {
+      fromLocalStorage.saveEntry({ key: "theme", value: value });
+      document.body.className = "";
+      document.body.classList.add(value);
+      themeValue = value;
+    });
+  });
 </script>
 
 <style lang="scss" global>
@@ -17,10 +31,10 @@
   }
 </style>
 
-<Nav {segment} />
+<Nav {segment} isDark={themeValue === 'dark-theme'} />
 
-<main>
+<main class={themeValue === 'dark-theme' ? 'has-background-dark' : ''}>
   <slot />
 </main>
 
-<Footer></Footer>
+<Footer isDark={themeValue === 'dark-theme'} />

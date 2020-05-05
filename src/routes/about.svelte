@@ -4,13 +4,14 @@
   export async function preload(page, session) {
     const bioEntry = await fromApi.fetchEntriesForContentType("bio");
     return {
-      bioEntry: bioEntry
+      bioEntry: bioEntry[0].fields
     };
   }
 </script>
 
 <script>
   export let bioEntry;
+  const profileImage = bioEntry.profileImage.fields;
 </script>
 
 <style>
@@ -40,19 +41,17 @@
   <div class="columns">
     <div class="column">
       <div class="picture-container">
-        <img src={bioEntry.imgUrl} alt={bioEntry.name} />
+        <img src={profileImage.file.url} alt={profileImage.title} />
       </div>
     </div>
     <div class="column is-four-fifths">
       <h1 class="title">About Me</h1>
-      <p>{bioEntry.shortBio}</p>
+      <p>{bioEntry.bio}</p>
     </div>
   </div>
   <div class="contact-info">
     <h1 class="is-size-4">Lets have a coffee</h1>
     <p>- af.osorio1341@gmail.com</p>
   </div>
-  <p class="has-text-grey-dark is-size-6">
-    * A virtual coffee works this days *
-  </p>
+  <p class="is-size-6">* A virtual coffee works this days *</p>
 </div>
