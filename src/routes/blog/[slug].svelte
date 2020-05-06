@@ -4,7 +4,6 @@
     // this file is called [slug].svelte
     const res = await this.fetch(`blog/${params.slug}.json`);
     const data = await res.json();
-
     if (res.status === 200) {
       return { post: data };
     } else {
@@ -14,42 +13,35 @@
 </script>
 
 <script>
+  import * as fromParsers from "../../helpers/parsers";
   export let post;
 </script>
 
 <style>
-  /*
-		By default, CSS is locally scoped to the component,
-		and any unused styles are dead-code-eliminated.
-		In this page, Svelte can't know which elements are
-		going to appear inside the {{{post.html}}} block,
-		so we have to use the :global(...) modifier to target
-		all elements inside .content
-	*/
-  .content :global(h2) {
-    font-size: 1.4em;
-    font-weight: 500;
+  .article {
+    margin-bottom: 25px;
   }
 
-  .content :global(pre) {
-    background-color: #f9f9f9;
-    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
-    padding: 0.5em;
-    border-radius: 2px;
-    overflow-x: auto;
+  .article .article-date {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: bold;
   }
 
-  .content :global(pre) :global(code) {
-    background-color: transparent;
-    padding: 0;
+  .topics-list {
+    display: flex;
+    margin: 0;
+    list-style: none;
+    align-items: center;
   }
 
-  .content :global(ul) {
-    line-height: 1.5;
+  .topics-list .topic-img {
+    width: 20px;
+    margin: 0 5px 0 0;
   }
 
-  .content :global(li) {
-    margin: 0 0 0.5em 0;
+  .topic-img img {
+    width: 100%;
   }
 </style>
 
@@ -57,8 +49,20 @@
   <title>{post.title}</title>
 </svelte:head>
 
-<h1>{post.title}</h1>
-
-<div class="content">
-  {@html post.html}
+<div class="container">
+  <div class="article">
+    <!-- <ul class="topics-list">{topics}</ul> -->
+    <ul class="topics-list">
+      {#each post.topics as topic}
+        <li key={topic} class="topic-img">
+          <img src={`/img/${topic}.svg`} alt="" />
+        </li>
+      {/each}
+    </ul>
+    <span class="article-date">{fromParsers.parseDate(post.publishDate)}</span>
+    <h2 class="article-title title">{post.title}</h2>
+    <div class="article-content">
+      {@html post.html}
+    </div>
+  </div>
 </div>

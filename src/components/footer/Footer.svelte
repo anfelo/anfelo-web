@@ -1,3 +1,7 @@
+<script>
+  export let isDark;
+</script>
+
 <style>
   .social-icons-container {
     display: flex;
@@ -23,7 +27,8 @@
   }
 </style>
 
-<footer class="footer has-background-white">
+<footer
+  class={`footer ${isDark ? 'has-background-dark' : 'has-background-white'}`}>
   <div class="container">
     <div class="content has-text-centered">
       <div class="copy">
