@@ -2,10 +2,15 @@
   import * as fromApi from "../services/api";
 
   export async function preload(page, session) {
-    const bioEntry = await fromApi.fetchEntriesForContentType("bio");
-    return {
-      bioEntry: bioEntry[0].fields
-    };
+    const res = await this.fetch("about.json");
+    const data = await res.json();
+    if (res.status === 200) {
+      return {
+        bioEntry: data
+      };
+    } else {
+      this.error(res.status, data.message);
+    }
   }
 </script>
 
