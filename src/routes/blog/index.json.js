@@ -1,18 +1,11 @@
-import posts from './_posts.js';
+import * as fromApi from '../../services/api';
 
-const contents = JSON.stringify(
-  posts.map((post) => {
-    return {
-      title: post.title,
-      slug: post.slug,
-    };
-  })
-);
-
-export function get(req, res) {
+export async function get(req, res) {
+  const postEntries = await fromApi.fetchEntriesForContentType('article');
+  const posts = postEntries.map((entry) => entry.fields);
   res.writeHead(200, {
     'Content-Type': 'application/json',
   });
 
-  res.end(contents);
+  res.end(JSON.stringify(posts));
 }

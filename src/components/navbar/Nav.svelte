@@ -103,6 +103,7 @@
         </a>
         <a
           class="navbar-item"
+          rel="prefetch"
           aria-current={segment === 'about' ? 'page' : undefined}
           href="about">
           about

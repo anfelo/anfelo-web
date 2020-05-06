@@ -3,10 +3,13 @@
   import * as fromParsers from "../../helpers/parsers";
 
   export async function preload({ params, query }) {
-    const postEntries = await fromApi.fetchEntriesForContentType("article");
-    return {
-      posts: postEntries.map(entry => entry.fields)
-    };
+    const res = await this.fetch("blog.json");
+    const data = await res.json();
+    if (res.status === 200) {
+      return { posts: data };
+    } else {
+      this.error(res.status, data.message);
+    }
   }
 </script>
 
