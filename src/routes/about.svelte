@@ -1,6 +1,4 @@
 <script context="module">
-  import * as fromApi from "../services/api";
-
   export async function preload(page, session) {
     const res = await this.fetch("about.json");
     const data = await res.json();

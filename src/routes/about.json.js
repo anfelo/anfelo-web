@@ -8,7 +8,7 @@ export async function get(req, res) {
 
   res.end(
     JSON.stringify({
-      bioEntry: bioEntry[0].fields,
+      ...bioEntry[0].fields,
     })
   );
 }
