@@ -13,11 +13,20 @@
 </script>
 
 <script>
+  import TECH_TAGS from "../constants/tags";
   export let bioEntry;
   const profileImage = bioEntry.profileImage.fields;
+
+  const tags = TECH_TAGS;
 </script>
 
 <style>
+  .picture-container {
+    max-width: 150px;
+    float: left;
+    margin-right: 15px;
+  }
+
   .picture-container img {
     width: 100%;
   }
@@ -27,27 +36,47 @@
     display: inline;
   }
 
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag-list .tag {
+    margin-right: 2px;
+    margin-bottom: 2px;
+  }
+
   @media (max-width: 876px) {
     .picture-container {
       max-width: 50%;
       min-width: 200px;
       margin: auto;
+      float: none;
     }
   }
 </style>
 
 <svelte:head>
-  <title>anfelo - about</title>
+  <title>anfelos - about</title>
 </svelte:head>
 
 <div class="container">
   <div class="columns">
+    <div class="column is-3">
+      <div class="tag-list">
+        {#each tags as tag}
+          <span
+            class="tag"
+            style={`color:${tag.color};background-color:${tag.backgroundColor}`}>
+            {tag.name}
+          </span>
+        {/each}
+      </div>
+    </div>
     <div class="column">
       <div class="picture-container">
         <img src={profileImage.file.url} alt={profileImage.title} />
       </div>
-    </div>
-    <div class="column is-four-fifths">
       <h1 class="title">About Me</h1>
       <p>{bioEntry.bio}</p>
     </div>
