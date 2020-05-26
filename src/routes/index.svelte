@@ -14,7 +14,7 @@
 </style>
 
 <svelte:head>
-  <title>anfelo - home</title>
+  <title>anfelos - home</title>
 </svelte:head>
 
 <div class="container">

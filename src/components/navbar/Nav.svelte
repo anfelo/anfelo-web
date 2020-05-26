@@ -40,7 +40,7 @@
 
   .navbar-brand .navbar-item {
     display: flex;
-    min-width: 100px;
+    min-width: 120px;
   }
 
   .navbar-brand .navbar-item span {
@@ -74,7 +74,7 @@
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
         <img src="/img/logo-orange.svg" height="28" alt="Anfelo Logo" />
-        <span>anfelo</span>
+        <span>anfelos</span>
       </a>
 
       <a
@@ -107,6 +107,13 @@
           aria-current={segment === 'about' ? 'page' : undefined}
           href="about">
           about
+        </a>
+        <a
+          class="navbar-item"
+          rel="prefetch"
+          aria-current={segment === 'work' ? 'page' : undefined}
+          href="work">
+          work
         </a>
         <a
           class="navbar-item"

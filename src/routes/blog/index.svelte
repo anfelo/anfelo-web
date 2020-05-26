@@ -73,7 +73,7 @@
 </style>
 
 <svelte:head>
-  <title>anfelo - blog</title>
+  <title>anfelos - blog</title>
 </svelte:head>
 
 <div class="container">
